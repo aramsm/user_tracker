@@ -1,8 +1,8 @@
 class CreateVisits < ActiveRecord::Migration[5.1]
   def change
     create_table :visits do |t|
-      t.string :guid, :primary_key
-      t.string :url
+      t.string :guid, null: false
+      t.string :url, null: false
 
       t.timestamps
     end
