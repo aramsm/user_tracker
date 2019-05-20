@@ -1,10 +1,17 @@
 <div class="section">
+   <% if @contact.errors.any? %>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <div class="notification is-danger">
+        <%= msg %>
+      </div>
+    <% end %>
+  <% end %>
   <%= simple_form_for @contact do |c| %>
     <div class="field">
       <div class="control">
         <%= c.input :email, 
           input_html: { class: 'input'}, 
-          wrapper: false, 
+          wrapper: false,
           label_html: { class: 'label' } 
         %>
       </div>
