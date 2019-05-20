@@ -1,0 +1,19 @@
+<% content_for :page_title, "Contacts" %>
+<section class="section">
+  <div class="container">
+    <% @contacts.each do |contact| %>
+      <div class="card">
+        <a href="/contacts/<%= contact.id %>">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4"><%= contact.name %></p>
+            </div>
+          </div>
+          <div class="content">
+            <%= contact.email %>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</section>
