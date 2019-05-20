@@ -1,0 +1,23 @@
+<% content_for :page_title, "Visits" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="GUID">GUID</abbr></th>
+      <th><abbr title="URL">URL</abbr></th>
+      <th><abbr title="Date">Date</abbr></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @visits.each do |visit| %>
+      <tr>
+        <%= visit.guid %>
+      </tr>
+      <tr>
+        <%= visit.url %>
+      </tr>
+      <tr>
+        <%= visit.created_at %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
