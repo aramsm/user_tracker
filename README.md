@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Install:
 
-Things you may want to cover:
+* Install Ruby v2.5x
 
-* Ruby version
+* Install bundler (run `gem install bundler`)
 
-* System dependencies
+* Run `bundle install` to install all gems, including rails
 
-* Configuration
+* Run `rake db:create`
 
-* Database creation
+* Run `rake db:migrate`
 
-* Database initialization
+* Run `rails -s` on your terminal to make server up
 
-* How to run the test suite
+* Access `localhost:3000` from your browser
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Use `bin/rails test test/` to run tests
