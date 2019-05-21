@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'visits/index', to: 'visits#index'
-
+  resources :visits, only: [:index, :create]
   resources :contacts, only: [:index, :create, :new, :show]
 
   root 'contacts#index'
