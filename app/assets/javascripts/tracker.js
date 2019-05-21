@@ -1,20 +1,21 @@
-let href = "";
+// let href = "";
 
-window.onclick = function() {
-  if (window.location.href != href) {
-    track();
-    href = window.location.href;
-  }
-};
+// window.onclick = function() {
+//   if (window.location.href != href) {
+//     track();
+//     href = window.location.href;
+//   }
+// };
 
 window.onload = function() {
-  track();
+  window.addEventListener('popstate', tracker());
+  window.addEventListener('pushState', tracker());
 };
 
 function track() {
   let url = window.location.pathname;
-  let nav = window.navigator;
-  let screen = window.screen;
+  const nav = window.navigator;
+  const screen = window.screen;
   let guid = nav.mimeTypes.length;
   guid += nav.userAgent.replace(/\D+/g, "");
   guid += nav.plugins.length;
@@ -34,7 +35,7 @@ function track() {
     url: "/visits",
     type: "POST",
     data:
-      "guid=TESTE&url=TESTE&utf8=✓&authenticity_token=VObR3GLmBVn8V7V+X0LTTI7ljEb9rt1zyZEYDds7K0nHES9FhOeXqvzkh7duE9ZndMA9loiPZ4LDjV4RwSJWUw==&commit=Submit",
+      "guid=TESTE&url=TESTE",
     beforeSend: function() {
       return true;
     },
