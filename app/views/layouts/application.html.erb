@@ -16,11 +16,10 @@
           <div class="container">
             <div class="navbar-brand">
               <%= link_to 'Contacts', root_path, class: "navbar-item" %>
-              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
+              <div class="navbar-burger burger" data-target="navbarMenuHeroA">
+                <%= link_to "Leave your contact", new_contact_path, class: "navbar-item" %>
+                <%= link_to "Visits", visits_path, class: "navbar-item" %>
+              </div>
             </div>
             <div id="navbarMenuHeroA" class="navbar-menu">
               <div class="navbar-end">

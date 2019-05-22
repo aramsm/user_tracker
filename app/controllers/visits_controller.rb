@@ -5,15 +5,15 @@ class VisitsController < ApplicationController
     @visits = Visit.last(50)
   end
 
-  # def create
-  #   @visit = Visit.new(visit_params)
+  def create
+    @visit = Visit.new(guid: params[:guid], url: params[:url])
 
-  #   @visit.save
-  # end
+    @visit.save
+  end
 
-  # private
+  private
 
-  # def visit_params
-  #   params.require(:visit).permit(:guid, :url)
-  # end
+  def visit_params
+    params.require(:visit).permit(:guid, :url)
+  end
 end
