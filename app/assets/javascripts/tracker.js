@@ -6,10 +6,11 @@
 //     href = window.location.href;
 //   }
 // };
-
+$(document).on("click", "a", function() {
+  track();
+});
 window.onload = function() {
-  window.addEventListener('popstate', tracker());
-  window.addEventListener('pushState', tracker());
+  track();
 };
 
 function track() {
@@ -23,19 +24,13 @@ function track() {
   guid += screen.width || "";
   guid += screen.pixelDepth || "";
 
-  // let request = new XMLHttpRequest();
-  // request.open("post", "http://localhost:3000/visits");
-
-  // let formData = new FormData();
-  // formData.append("guid", guid);
-  // formData.append("url", url);
-  // console.log("formData", formData);
-  // let result = request.send(formData);
+  let formData = new FormData();
+  formData.append("guid", guid);
+  formData.append("url", url);
   const result = Rails.ajax({
     url: "/visits",
     type: "POST",
-    data:
-      "guid=TESTE&url=TESTE",
+    data: formData,
     beforeSend: function() {
       return true;
     },
@@ -46,5 +41,4 @@ function track() {
       console.log(errors);
     }
   });
-  console.log("RESULT", result);
 }
