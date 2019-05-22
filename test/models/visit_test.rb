@@ -10,7 +10,7 @@ class VisitTest < ActiveSupport::TestCase
     assert visit.save
   end
 
-  teste "fails to create a visit with invalid params" do
+  test "fails to create a visit with invalid params" do
     visit = Visit.new()
 
     refute visit.valid?

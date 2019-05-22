@@ -19,7 +19,7 @@ class ContactTest < ActiveSupport::TestCase
     refute contact.save
   end
 
-  teste "fails to create a contact without params" do
+  test "fails to create a contact without params" do
     contact = Contact.new()
 
     refute contact.valid?
