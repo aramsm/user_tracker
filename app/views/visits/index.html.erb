@@ -10,13 +10,9 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <%= visit.guid %>
-      </tr>
-      <tr>
-        <%= visit.url %>
-      </tr>
-      <tr>
-        <%= visit.created_at %>
+        <th><%= visit.guid %></th>
+        <th><%= visit.url %></th>
+        <th><%= visit.created_at %></th>
       </tr>
     <% end %>
   </tbody>
