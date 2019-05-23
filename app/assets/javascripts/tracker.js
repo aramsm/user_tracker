@@ -1,20 +1,13 @@
-// let href = "";
+let path = "";
 
-// window.onclick = function() {
-//   if (window.location.href != href) {
-//     track();
-//     href = window.location.href;
-//   }
-// };
-$(document).on("click", "a", function() {
-  track();
+$(document).bind("DOMSubtreeModified", function() {
+  if (path != window.location.pathname) {
+    track();
+    path = window.location.pathname;
+  }
 });
-window.onload = function() {
-  track();
-};
 
-function track() {
-  let url = window.location.pathname;
+function build_guid() {
   const nav = window.navigator;
   const screen = window.screen;
   let guid = nav.mimeTypes.length;
@@ -24,9 +17,13 @@ function track() {
   guid += screen.width || "";
   guid += screen.pixelDepth || "";
 
+  return guid;
+}
+
+function track() {
   let formData = new FormData();
-  formData.append("guid", guid);
-  formData.append("url", url);
+  formData.append("guid", build_guid());
+  formData.append("url", window.location.href);
   const result = Rails.ajax({
     url: "/visits",
     type: "POST",
